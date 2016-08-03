@@ -2,14 +2,28 @@
   <target name="clean">
     <delete dir="build"/>
   </target>
+
   <target name="concat">
     <mkdir dir="build"/>
-    <concat destfile="C:/targetdir/concatenated.file">
-      <filelist dir="C:/sourcedir/">
+    <concat destfile="build/final.src.js">
+      <filelist dir="source">
           <file name="one.js" />
           <file name="two.js" />
           <file name="three.js" />
       </filelist>
     </concat>
+  </target>
+
+  <target name="uglify">
+    <touch file="build/final.min.js"/>
+    <exec dir="build" executable="uglifyjs">
+      <arg line="final.src.js -o final.min.js"/>
+    </exec>
+  </target>
+
+  <target name="default">
+    <antcall target="clean"/>
+    <antcall target="concat"/>
+    <antcall target="uglify"/>
   </target>
 </project>
