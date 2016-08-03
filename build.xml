@@ -3,6 +3,8 @@
   <!-- This initializes a vairable called `file_name` and set the return statement of
   bash script `$ whoami` to it. So it's going to be your name. -->
   <exec executable="whoami" outputproperty="file_name" />
+  <!-- or you can just set the variable like this: -->
+  <!-- <property name="file_name"   value="main"/> -->
 
   <!-- delete the build folder -->
   <target name="clean">
