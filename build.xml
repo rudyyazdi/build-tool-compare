@@ -4,5 +4,12 @@
   </target>
   <target name="concat">
     <mkdir dir="build"/>
+    <concat destfile="C:/targetdir/concatenated.file">
+      <filelist dir="C:/sourcedir/">
+          <file name="one.js" />
+          <file name="two.js" />
+          <file name="three.js" />
+      </filelist>
+    </concat>
   </target>
 </project>
