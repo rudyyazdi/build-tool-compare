@@ -1,11 +1,14 @@
-<project>
+<!-- This is the file that ant pics up just run: $ ant -->
+<project default="default">
+  <property name="target.name" value="final"/>
+
   <target name="clean">
     <delete dir="build"/>
   </target>
 
   <target name="concat">
     <mkdir dir="build"/>
-    <concat destfile="build/final.src.js">
+    <concat destfile="build/${target.name}.src.js">
       <filelist dir="source">
           <file name="one.js" />
           <file name="two.js" />
@@ -15,9 +18,8 @@
   </target>
 
   <target name="uglify">
-    <touch file="build/final.min.js"/>
     <exec dir="build" executable="uglifyjs">
-      <arg line="final.src.js -m 'toplevel' -o final.min.js"/>
+      <arg line="${target.name}.src.js -m 'toplevel' -o ${target.name}.min.js"/>
     </exec>
   </target>
 
