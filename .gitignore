@@ -1,0 +1,12 @@
+# Mac.
+.DS_STORE
+
+# Node.
+node_modules
+npm-debug.log
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Build files
+build
