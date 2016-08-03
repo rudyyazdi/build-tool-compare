@@ -9,14 +9,14 @@
     <delete dir="build"/>
   </target>
 
-  <!-- stick all the files togeather -->
+  <!-- stick all the files together -->
   <target name="concat">
     <mkdir dir="build"/>
     <concat destfile="build/${file_name}.src.js">
       <filelist dir="source">
-          <file name="one.js" />
-          <file name="two.js" />
-          <file name="three.js" />
+        <file name="one.js" />
+        <file name="two.js" />
+        <file name="three.js" />
       </filelist>
     </concat>
   </target>
@@ -35,7 +35,7 @@
     </exec>
   </target>
 
-  <!-- run all the above! -->
+  <!-- execute all the above! -->
   <target name="default">
     <antcall target="clean"/>
     <antcall target="concat"/>
