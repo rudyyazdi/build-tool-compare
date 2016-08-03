@@ -8,12 +8,11 @@
 
   <!-- delete the build folder -->
   <target name="clean">
-    <delete dir="build"/>
+    <delete dir="build" defaultexcludes="false"/>
   </target>
 
   <!-- stick all the files together -->
   <target name="concat">
-    <mkdir dir="build"/>
     <concat destfile="build/${file_name}.src.js">
       <filelist dir="source">
         <file name="one.js" />
