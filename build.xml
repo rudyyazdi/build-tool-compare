@@ -17,7 +17,7 @@
   <target name="uglify">
     <touch file="build/final.min.js"/>
     <exec dir="build" executable="uglifyjs">
-      <arg line="final.src.js -o final.min.js"/>
+      <arg line="final.src.js -m 'toplevel' -o final.min.js"/>
     </exec>
   </target>
 
