@@ -1,0 +1,8 @@
+<project>
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+  <target name="concat">
+    <mkdir dir="build"/>
+  </target>
+</project>
