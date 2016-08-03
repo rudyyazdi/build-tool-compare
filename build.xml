@@ -1,14 +1,18 @@
 <!-- This is the file that ant pics up just run: $ ant -->
 <project default="default">
-  <property name="target.name" value="final"/>
+  <!-- This initializes a vairable called `file_name` and set the return statement of
+  bash script `$ whoami` to it. So it's going to be your name. -->
+  <exec executable="whoami" outputproperty="file_name" />
 
+  <!-- delete the build folder -->
   <target name="clean">
     <delete dir="build"/>
   </target>
 
+  <!-- stick all the files togeather -->
   <target name="concat">
     <mkdir dir="build"/>
-    <concat destfile="build/${target.name}.src.js">
+    <concat destfile="build/${file_name}.src.js">
       <filelist dir="source">
           <file name="one.js" />
           <file name="two.js" />
@@ -17,15 +21,25 @@
     </concat>
   </target>
 
+  <!-- minify -->
   <target name="uglify">
     <exec dir="build" executable="uglifyjs">
-      <arg line="${target.name}.src.js -m 'toplevel' -o ${target.name}.min.js"/>
+      <arg line="${file_name}.src.js -m 'toplevel' -o ${file_name}.min.js"/>
     </exec>
   </target>
 
+  <!-- run the JS file! -->
+  <target name="run">
+    <exec dir="build" executable="node">
+      <arg line="${file_name}.min.js"/>
+    </exec>
+  </target>
+
+  <!-- run all the above! -->
   <target name="default">
     <antcall target="clean"/>
     <antcall target="concat"/>
     <antcall target="uglify"/>
+    <antcall target="run"/>
   </target>
 </project>
