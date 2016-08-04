@@ -12,20 +12,20 @@ gulp.task('clean', function () {
     .pipe(clean());
 });
 
-gulp.task('cancatUglify', function () {
+gulp.task('cancatUglify', ['clean'], function () {
 	return gulp.src([
-    'source/one.js',
-    'source/two.js',
-    'source/three.js'])
-	.pipe(concat(`${FILE_NAME}.min.js`))
-	.pipe(uglify())
-	.pipe(gulp.dest('build'));
+      'source/one.js',
+      'source/two.js',
+      'source/three.js'])
+  	.pipe(concat(`${FILE_NAME}.min.js`))
+  	.pipe(uglify())
+  	.pipe(gulp.dest('build'));
 });
 
-gulp.task('run', function () {
+gulp.task('run', ['clean', 'cancatUglify'], function () {
   exec(`node build/${FILE_NAME}.min.js`, function (err, stdout, stderr) {
     console.log(stdout);
   });
 })
 
-gulp.task('default', ['clean', 'cancatUglify']);
+gulp.task('default', ['clean', 'cancatUglify' ,'run']);
