@@ -3,6 +3,8 @@ require 'uglifier'
 # get the owner of the current shell session and assign it to the constant.
 FILE_NAME = `whoami`.chomp
 
+task default: [:run]
+
 desc 'remove all files form build folder.'
 task :clean do
   Dir['build/*.*'].each { |file| File.delete(file) }
@@ -20,7 +22,7 @@ task concat: [:clean] do
 end
 
 desc 'minify the js file.'
-task uglify: [:concat] do
+task uglify: [:concat, :clean] do
   uglifier = Uglifier.new(mangle: { toplevel: true })
 
   out = uglifier.compile(File.read("build/#{FILE_NAME}.src.js"))
@@ -28,4 +30,9 @@ task uglify: [:concat] do
   File.open("build/#{FILE_NAME}.min.js", 'a') do |file|
     file.write(out)
   end
+end
+
+desc 'run the minfied file!'
+task run: [:uglify] do
+  sh "node build/#{FILE_NAME}.min.js"
 end
