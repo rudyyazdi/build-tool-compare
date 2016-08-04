@@ -1,11 +1,11 @@
-const FILE_NAME = "ruuuud"
-
 var gulp       = require('gulp'),
     clean      = require('gulp-clean'),
     concat     = require('gulp-concat'),
     watch      = require('gulp-watch'),
     uglify     = require('gulp-uglify'),
-    exec       = require('child_process').exec;
+    shell      = require('shelljs');
+
+const FILE_NAME = shell.exec('whoami')
 
 gulp.task('clean', function () {
   return gulp.src('build/*.*', {read: false})
@@ -23,9 +23,7 @@ gulp.task('cancatUglify', ['clean'], function () {
 });
 
 gulp.task('run', ['clean', 'cancatUglify'], function () {
-  exec(`node build/${FILE_NAME}.min.js`, function (err, stdout, stderr) {
-    console.log(stdout);
-  });
+  shell.exec(`node 'build/${FILE_NAME}.min.js'`);
 })
 
 gulp.task('default', ['clean', 'cancatUglify' ,'run']);
