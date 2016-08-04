@@ -21,6 +21,11 @@ end
 
 desc 'minify the js file.'
 task uglify: [:concat] do
-  uglifier = Uglifier.new(:mangle => false)
-  uglifier.compile(File.read("build/#{FILE_NAME}.src.js"))
+  uglifier = Uglifier.new(mangle: { toplevel: true })
+
+  out = uglifier.compile(File.read("build/#{FILE_NAME}.src.js"))
+
+  File.open("build/#{FILE_NAME}.min.js", 'a') do |file|
+    file.write(out)
+  end
 end
