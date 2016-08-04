@@ -1,0 +1,21 @@
+{
+  "name": "build-tool-compare",
+  "version": "1.0.0",
+  "description": "This is a repo demonstrating the difference of a few build tools, namely: Rake, Ant, Gulp, SBT",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudyyazdi/build-tool-compare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudyyazdi/build-tool-compare/issues"
+  },
+  "homepage": "https://github.com/rudyyazdi/build-tool-compare#readme"
+}
