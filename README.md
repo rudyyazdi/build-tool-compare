@@ -12,4 +12,4 @@ The build tool should:
 4. Dump everything in a `.js` file.
 5. Name the file the result of `whoami` command in the command line at the time of build.
 6. Put the file in the build folder.
-7. Run the minified file.
+7. Run the minified file. 
