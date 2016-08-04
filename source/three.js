@@ -1,3 +1,3 @@
 // This is the third file !!!
-var my_long_varibale_name = "build_tool";
-console.log(my_long_varibale_name);
+const My_long_constant_name = 'build_tool';
+console.log(My_long_constant_name);

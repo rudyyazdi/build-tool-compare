@@ -1,2 +1,2 @@
 // This is the second file !!!
-console.log("from");
+console.log('from');
