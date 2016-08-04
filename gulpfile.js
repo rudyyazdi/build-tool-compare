@@ -8,7 +8,7 @@ var gulp       = require('gulp'),
 const FILE_NAME = shell.exec('whoami')
 
 gulp.task('clean', function () {
-  return gulp.src('build/*.*', {read: false})
+  return gulp.src('build/*.*', { read: false })
     .pipe(clean());
 });
 
@@ -18,7 +18,7 @@ gulp.task('cancatUglify', ['clean'], function () {
       'source/two.js',
       'source/three.js'])
   	.pipe(concat(`${FILE_NAME}.min.js`))
-  	.pipe(uglify())
+  	.pipe(uglify({mangle: {toplevel: true}}))
   	.pipe(gulp.dest('build'));
 });
 
