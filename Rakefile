@@ -36,7 +36,3 @@ desc 'run the minfied file!'
 task run: :uglify do
   sh "node build/#{FILE_NAME}.min.js"
 end
-
-task :sum, [:num1, :num2] do |t, args|
-  p "the sum of #{args[:num1]} and #{args[:num2]} is #{args[:num1].to_i + args[:num2].to_i}"
-end
