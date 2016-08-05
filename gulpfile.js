@@ -1,9 +1,9 @@
-var gulp       = require('gulp'),
-    clean      = require('gulp-clean'),
-    concat     = require('gulp-concat'),
-    watch      = require('gulp-watch'),
-    uglify     = require('gulp-uglify'),
-    shell      = require('shelljs');
+let gulp       = require('gulp');
+let clean      = require('gulp-clean');
+let concat     = require('gulp-concat');
+let watch      = require('gulp-watch');
+let uglify     = require('gulp-uglify');
+let shell      = require('shelljs');
 
 const FILE_NAME = shell.exec('whoami')
 
