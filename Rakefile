@@ -27,9 +27,7 @@ task uglify: [:concat, :clean] do
 
   out = uglifier.compile(File.read("build/#{FILE_NAME}.src.js"))
 
-  File.open("build/#{FILE_NAME}.min.js", 'a') do |file|
-    file.write(out)
-  end
+  File.open("build/#{FILE_NAME}.min.js", 'a') { |file| file.write(out) }
 end
 
 desc 'run the minfied file!'
