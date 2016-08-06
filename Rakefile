@@ -12,8 +12,8 @@ end
 
 desc 'concat all files in source in order.'
 task concat: :clean do
-  out = Dir['source/one.js', 'source/two.js', 'source/three.js'].reduce('') do |memo, file|
-    memo += File.read(file)
+  out = ['one.js', 'two.js', 'three.js'].reduce('') do |memo, file|
+    memo += File.read("source/#{file}")
   end
 
   File.open("build/#{FILE_NAME}.src.js", 'a') do |file|
