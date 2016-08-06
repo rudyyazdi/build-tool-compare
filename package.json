@@ -4,12 +4,6 @@
   "description": "This is a repo demonstrating the difference of a few build tools, namely: Rake, Ant, Gulp, SBT",
   "main": "index.js",
   "dependencies": {
-    "eslint-config-airbnb": "^10.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.2.2",
-    "eslint-config-airbnb": "^10.0.0",
-    "eslint-plugin-import": "^1.12.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
@@ -17,6 +11,11 @@
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.9",
     "shelljs": "^0.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
