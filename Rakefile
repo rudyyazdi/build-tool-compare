@@ -3,6 +3,8 @@ require 'uglifier'
 # get the owner of the current shell session and assign it to the constant.
 FILE_NAME = `whoami`.chomp
 
+# this tells rake that run is the default task so if you just say `rake`
+# in your command line it will run run!
 task default: :run
 
 desc 'remove all files from build folder.'
@@ -32,5 +34,6 @@ end
 
 desc 'run the minfied file!'
 task run: :uglify do
+  # with sh command you can access your shell.
   sh "node build/#{FILE_NAME}.min.js"
 end
