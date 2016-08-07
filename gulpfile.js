@@ -16,13 +16,13 @@ gulp.task('clean', function () {
 
 // clean here is a dependency of cancatUglify.
 gulp.task('cancatUglify', ['clean'], function () {
-	return gulp.src([
-      'source/one.js',
-      'source/two.js',
-      'source/three.js'])
-  	.pipe(concat(`${FILE_NAME}.min.js`))
-  	.pipe(uglify({ mangle: { toplevel: true } }))
-  	.pipe(gulp.dest('build'));
+  return gulp.src([
+    'source/one.js',
+    'source/two.js',
+    'source/three.js'])
+    .pipe(concat(`${FILE_NAME}.min.js`))
+    .pipe(uglify({ mangle: { toplevel: true } }))
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('run', ['clean', 'cancatUglify'], function () {
