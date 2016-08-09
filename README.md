@@ -2,6 +2,8 @@
 
 This is a repo demonstrating the difference of a few build tools, namely: Rake, Ant, Gulp.
 
+This repo was created for my talk at roro Sydney Meetup. Read the whole write up [on medium.](https://medium.com/@rudyyazdi/rake-gem-explained-ebee7e6e6f72#.y0t1zwwvd)
+
 ## Goal
 
 The build tool should:
